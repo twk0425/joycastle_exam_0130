@@ -6,7 +6,11 @@ FROM (
     -- 第一步：统计每个用户2020年9月的关卡开启次数
     SELECT user_id, COUNT(*) AS open_level_count
     FROM event_log
-    WHERE 
+    WHERE
+    -- mysql替换为 UNIX_TIMESTAMP sqlite3.OperationalError: no such function: UNIX_TIMESTAMP
+    -- event_timestamp >= UNIX_TIMESTAMP('2020-09-01 00:00:00')
+    -- AND event_timestamp < UNIX_TIMESTAMP('2020-10-01 00:00:00')
+    
         event_timestamp >= strftime('%s', '2020-09-01 00:00:00')
         AND event_timestamp < strftime('%s', '2020-10-01 00:00:00')
     GROUP BY user_id
