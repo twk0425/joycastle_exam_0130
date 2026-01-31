@@ -118,6 +118,6 @@ def success_rate_by_date(file_path, target_date_str):
 
 # 使用示例 (请替换为实际文件路径)
 if __name__ == "__main__":
-    count_https_domain("nginx.log", "domain1.com")
+    count_https_domain("./test1/nginx.log", "domain1.com")
     # 假设日志文件名为 nginx.log，要查询的日期是 2019年2月28日
-    success_rate_by_date("nginx.log", "2019-02-28")
+    success_rate_by_date("./test1/nginx.log", "2019-02-28")
